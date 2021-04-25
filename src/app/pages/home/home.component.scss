@@ -1,0 +1,54 @@
+.auctions-container {
+    width: 100%;
+    height: calc(100vh - 64px);
+}
+
+.sidebar-drawer {
+    width: 250px;
+}
+
+.loading-div {
+    margin: 50px auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.auctions-main {
+    width: calc(100% - 250px);
+    padding: 50px;
+    height: calc(100vh - 64px);
+}
+
+h1 {
+    font-size: 38px;
+}
+
+.category-card {
+    margin: 20px 200px 20px 0px;
+}
+
+.clear {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    vertical-align: middle imp !important;
+}
+
+.custom.mat-card {
+    padding: 10px;
+} 
+
+.create-category button {
+    width: 100%;
+    margin-top: 5px;
+    background-color: darkcyan;
+    color: white;
+    margin-bottom: 20px;
+  }
+  
+  .create-category button:hover {
+    background-color: lighten(darkcyan, 5%);
+    color: aliceblue;
+  }
+  
