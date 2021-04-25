@@ -1,0 +1,24 @@
+<div class="form-container">
+    <button class="btn-dialog-close" style="position: absolute; right:0px" mat-stroked-button (click)="onClose()"
+        tabIndex="-1">
+        <mat-icon>clear</mat-icon>
+    </button>
+
+    <div style="width: 100%; flex: 1 1 auto; display: flex; flex-direction: column">
+        <h1>Create category</h1>
+        <div *ngIf="inProgress" style="width: 100%; display: flex; align-items: center; flex-direction: column;">
+            <h1>Creation in progress</h1>
+            <mat-spinner></mat-spinner>
+        </div>
+        <form *ngIf="!inProgress" name="createCategoryForm" class="create-category-form" (submit)="$event.preventDefault()">
+            <mat-form-field appearance="fill" class="titleInput">
+                <mat-label>Category name</mat-label>
+                <input matInput autocomplete="off" [(ngModel)]="category" name="category-title">
+            </mat-form-field>
+        </form>
+    </div>
+    <button mat-raised-button style="width:100%; margin-top: 20px" color="primary" (click)="createCategory()"
+        [disabled]="!category">
+        Create!
+    </button>
+</div>

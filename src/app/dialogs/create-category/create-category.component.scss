@@ -1,0 +1,30 @@
+.create-category-form {
+    width: 100%;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+h1 {
+    width: fit-content;
+}
+
+.form-container {
+    overflow-y: scroll;
+    overflow: hidden;
+    height: 200px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    .titleInput {
+        margin-top: 15px;
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+}
