@@ -1,0 +1,32 @@
+<div class="session-container">
+
+  <div class="register-container">
+
+    <div class="login">
+  
+      <h1>Log In</h1>
+      <p class="form-info">Sign in with your email and password</p>
+  
+  
+      <form class="loginForm" [formGroup]="loginForm" (submit)="login()">
+  
+        <mat-form-field class="emailInput">
+          <mat-label>Email</mat-label>
+          <input type="email" id="emailInput" matInput placeholder="Ex. pat@example.com" formControlName="email">
+        </mat-form-field>
+  
+        <mat-form-field>
+          <mat-label>Password</mat-label> <input id="passwordInput" type="password" matInput  autocomplete="false" formControlName="password">
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" id="loginButton">LOGIN</button>
+  
+      </form>
+  
+    </div>
+    
+  
+  </div>
+  
+
+</div>
