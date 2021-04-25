@@ -1,0 +1,30 @@
+<mat-toolbar>
+    <mat-toolbar-row>
+        <div class="mat-logo-div">
+            <img class="mat-logo" src="/assets/images/auction-icon.png" alt="logo">
+            <mat-nav-list class="no-padding">
+                <a mat-list-item routerLink="/" id="nav-title">
+                    Auctive
+                </a>
+            </mat-nav-list>
+        </div>
+        
+        <span class="example-spacer"></span>
+
+        <mat-nav-list *ngIf='isLoggedIn'>
+            <a mat-icon-button class="icon-big" routerLink="">
+                <mat-icon>home</mat-icon>
+            </a>
+            <a mat-icon-button class="icon-big" routerLink="">
+                <mat-icon>settings</mat-icon>
+            </a>
+            <a mat-icon-button class="icon-big">
+                <mat-icon matBadge="{{noSize}}" [matBadgeHidden]="noSize===0" matBadgeSize="small" matBadgeColor="warn"
+                    (click)="openNotifications()">notifications</mat-icon>
+            </a>
+
+            <a mat-button (click)='logout()'>Log Out</a>
+        </mat-nav-list>
+
+    </mat-toolbar-row>
+</mat-toolbar>
