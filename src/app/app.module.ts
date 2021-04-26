@@ -15,6 +15,10 @@ import { NavBarComponent } from './global/layouts/nav-bar/nav-bar.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { CreateCategoryComponent } from './dialogs/create-category/create-category.component';
+import { SettingsComponent } from './pages/settings/settings.component';
+import { CreateVerificationFormComponent } from './dialogs/create-verification-form/create-verification-form.component';
+import { ChangePhotoFormComponent } from './dialogs/change-photo-form/change-photo-form.component';
+import { VerificationRequestsComponent } from './pages/verification-requests/verification-requests.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +28,10 @@ import { CreateCategoryComponent } from './dialogs/create-category/create-catego
     HomeComponent,
     SidebarComponent,
     CreateCategoryComponent,
+    SettingsComponent,
+    CreateVerificationFormComponent,
+    ChangePhotoFormComponent,
+    VerificationRequestsComponent
   ],
   imports: [
     BrowserModule,
