@@ -1,0 +1,105 @@
+.verifications-container {
+    width: 100%;
+    height: calc(100vh - 64px);
+}
+
+.sidebar-drawer {
+    width: 250px;
+}
+
+.loading-div {
+    margin: 50px auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.verifications-main {
+    width: calc(100% - 250px);
+    padding: 50px;
+    height: calc(100vh - 64px);
+}
+
+h1 {
+    font-size: 38px;
+    margin-bottom: 40px;
+}
+
+.verification-card {
+    margin: 15px;
+    height: 400px;
+    width: 30%;
+    display: flex;
+    
+    justify-content: center;
+    text-align:center;
+    float: left;
+
+
+    .header-div {
+        display: inline-block;
+        width: 100%;
+
+        * {
+            display: inherit;
+        }
+    }
+
+
+    .verification-image {
+        object-fit: cover;
+        width: 250px;
+        height: 250px;
+        padding: 10px;
+    }
+
+
+    h3 {
+        margin-left: 5px;
+    }
+
+    .email-buttons {
+        width: 250px;
+        margin: auto;
+        position: relative;
+
+        button {
+            position:absolute;
+            display: flex;
+            text-align: center;
+            align-items: center;
+            justify-content: space-between;
+            height: 40px;
+            width: 100px;
+            mat-icon {
+                width: 20px;
+                height: 20px;
+                margin-left: 10px;
+                font-size: 20px;
+            }
+        }
+        #done-button {
+            left: 10px;
+            background-color: rgb(42, 174, 42);
+            color: white;
+        }
+        button[color="warn"] {
+            right : 10px
+        }
+    }
+
+}
+
+.custom.mat-card {
+    padding: 5px;
+} 
+
+
+.test {
+    border: 1px solid black;
+}
+
+
+.example-spacer {
+    margin: 0 20px;
+}
