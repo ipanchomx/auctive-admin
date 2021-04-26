@@ -1,20 +1,20 @@
 <mat-drawer-container class="auctions-container">
 
-    <mat-drawer-content class="auctions-main">
+    <mat-drawer-content class="categories-main">
         <h1 *ngIf="errorMessage">{{errorMessage}}</h1>
-        <div *ngIf="isLoading; else auctionsList" class="loading-div">
+        <div *ngIf="isLoading; else categoryList" class="loading-div">
             <mat-spinner></mat-spinner>
         </div>
 
         
-        <ng-template #auctionsList>
+        <ng-template #categoryList>
             <h1>Categories</h1>
             <div class="create-category">
                 <button (click)="launchCreateCategoryDialog()">Create category</button>
               </div>
             <mat-card *ngFor="let category of categories" class="category-card" class="clear custom">
                <h2 class="mat-h2" style="margin: 0%;">{{category}}</h2> 
-               <button mat-icon-button color="warn">
+               <button mat-icon-button color="warn" (click)="deleteCategory(category)">
                     <mat-icon>clear</mat-icon>
                </button>
             </mat-card>

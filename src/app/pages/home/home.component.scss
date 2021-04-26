@@ -14,7 +14,7 @@
     justify-content: center;
 }
 
-.auctions-main {
+.categories-main {
     width: calc(100% - 250px);
     padding: 50px;
     height: calc(100vh - 64px);
@@ -40,7 +40,9 @@ h1 {
 } 
 
 .create-category button {
-    width: 100%;
+    width: 50%;
+    display: block;
+    margin: 0 auto;
     margin-top: 5px;
     background-color: darkcyan;
     color: white;
