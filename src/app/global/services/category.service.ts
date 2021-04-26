@@ -31,4 +31,14 @@ export class CategoryService {
       headers
     }).toPromise();
   }
+
+  deleteCategory(category_name:String) {
+    const url = `${environment.apiUrl}/categories/${category_name}`;
+    const headers = new HttpHeaders({
+      Authorization: this._authService.get()
+    });
+    return this.httpClient.delete(url, {
+      headers
+    }).toPromise();
+  }
 }
