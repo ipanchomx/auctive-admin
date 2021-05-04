@@ -4,6 +4,7 @@ import { AuthService } from '../../services/auth.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { SocketsService } from '../../services/sockets.service';
 import { UserService } from '../../services/user.service';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 
 // import { NotificationsComponent } from 'src/app/dialogs/notifications/notifications.component';
 
@@ -24,23 +25,34 @@ export class NavBarComponent implements OnInit {
   name: string = "";
   searchQuery: string = "";
 
-  noSize = 0;
-
+  horizontalPosition: MatSnackBarHorizontalPosition = "center";
+  verticalPosition: MatSnackBarVerticalPosition = "top";
+  
   constructor(private authService: AuthService,
     private router: Router,
-    private _matDialog: MatDialog,
     private socketsService: SocketsService,
-    private userService: UserService
+    private userService: UserService,
+    private _snackBar: MatSnackBar, 
   ) {
 
     this.authService.loginStatus.subscribe(status => {
       this.isLoggedIn = status;
+      if (this.authService.isLoggedIn()) {
+        this.userService.getUserInfo(this.authService.getUserId())
+          .then(res => {
+            this.name = res.user.name;
+          });
+        }
     });
 
     this.socketsService.socketStatus.subscribe(status => {
       if (status) {
-        this.socketsService.on('notification', (data: Notification) => {
-          this.noSize += 1;
+        this.socketsService.on('newVerificationRequest', data =>{
+          const snack = this._snackBar.open("New verification request", "Close", {
+            horizontalPosition: this.horizontalPosition,
+            verticalPosition: this.verticalPosition,
+          });
+          snack._dismissAfter(3000);
         })
       }
     });
@@ -60,22 +72,5 @@ export class NavBarComponent implements OnInit {
     this.authService.clear();
     this.router.navigate(['/sign-up']);
   }
-
-  // openNotifications() {
-  //   const dialogConfig = new MatDialogConfig();
-  //   dialogConfig.minWidth = "300px";
-  //   dialogConfig.minHeight = "50px";
-  //   dialogConfig.maxHeight = "75%";
-  //   dialogConfig.width = "30%";
-  //   dialogConfig.position = { top: '50px', right: '50px' };
-  //   dialogConfig.data = { name: this.name };
-
-  //   const dialogRef = this._matDialog.open(NotificationsComponent, dialogConfig);
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     this.noSize = 0;
-  //     //delete notifications
-  //   });
-
-  // }
 
 }

@@ -29,11 +29,6 @@ export class VerificationRequestsComponent implements OnInit {
 
   ngOnInit(): void {
     this._socketService.on('newVerificationRequest', data =>{
-      const snack = this._snackBar.open("New verification request", "Close", {
-        horizontalPosition: this.horizontalPosition,
-        verticalPosition: this.verticalPosition,
-      });
-      snack._dismissAfter(3000);
       this.getVerificationRequests();
     })
     this.getVerificationRequests();
