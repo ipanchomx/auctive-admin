@@ -31,12 +31,10 @@ export class HomeComponent implements OnInit {
 
   
   getCategories():void {
-    // this.categories = []
+
     this.categoryService.getCategories().then((resp:any) => {
       let categoriesList = resp.categories;
-      categoriesList.forEach((element:any) => {
-        this.categories.push(element.category_name);
-      });
+      this.categories  = categoriesList.map(category => category.category_name);
     })
   }
 
