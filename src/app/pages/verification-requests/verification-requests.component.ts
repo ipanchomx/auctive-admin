@@ -44,7 +44,7 @@ export class VerificationRequestsComponent implements OnInit {
     this.isLoading = true;
     this.verificationService.getVerificationRequestss()
       .then((resp) => {
-        console.log(resp);
+        this.isLoading = false;
         if(resp.body.pending_verifications) {
           this.requests = []
           let requestsList = resp.body.pending_verifications;
@@ -52,7 +52,7 @@ export class VerificationRequestsComponent implements OnInit {
             this.requests.push({ official_id_url :element.official_id_url, user_email :element.user_email, userName: element.user_email.split("@")[0]});
           });
         }
-        this.isLoading = false;
+        
       })
       .catch((err) => {
         console.log(err);
@@ -78,8 +78,10 @@ export class VerificationRequestsComponent implements OnInit {
         snack._dismissAfter(3000);
 
         this._socketService.emit('verify', {verificationStatus: (result)?'ACCEPTED': 'REJECTED', email:escape(request.user_email)});
-
-        this.getVerificationRequests();
+        
+        const idx = this.requests.indexOf(request);
+        this.requests.splice(idx, 1);
+        this.isLoading = false;
       })
       .catch((err) => {
         this.isLoading = false;
@@ -88,6 +90,7 @@ export class VerificationRequestsComponent implements OnInit {
           verticalPosition: this.verticalPosition,
         })
         snack._dismissAfter(3000);
+        this.isLoading = false;
       })
   }
 
