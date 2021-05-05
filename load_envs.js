@@ -7,6 +7,7 @@ require('dotenv').config();
 
 
 const envConfigFile = `export const environment = {
+   production: true,
    apiUrl: "${process.env.API_URL}",
    ibmApiUrl: "${process.env.IBM_API_URL}",
    socketUrl: "${process.env.SOCKET_URL}",
